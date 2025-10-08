@@ -43,10 +43,12 @@
 # CMake build directories
 Build/*/CMakeFiles/
 Build/*/External/
+Build/*/.cmake/
 
 # IDE-specific files
 .idea/
 .vscode/
+.vs/
 *.suo
 *.user
 *.vcxproj*
@@ -62,6 +64,7 @@ Thumbs.db
 # CMake-specific files
 CMakeCache.txt
 cmake_install.cmake
+VSInheritEnvironments.txt
 
 # Ninja
 *.ninja*
