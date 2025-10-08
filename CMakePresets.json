@@ -1,0 +1,61 @@
+{
+  "version": 3,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 20,
+    "patch": 0
+  },
+  "configurePresets": [
+    {
+      "name": "default",
+      "hidden": true,
+	  "binaryDir": "${sourceDir}/Build/${presetName}",
+      "cacheVariables": {
+		"CMAKE_TOOLCHAIN_FILE": "CMake/Toolchain/Windows.MSVC.toolchain.cmake"
+      }
+    },
+    {
+      "name": "MSVC",
+      "inherits": "default",
+      "displayName": "Dev - MSVC",
+      "description": "Build using Miscrosoft Visual Studio compiler",
+      "generator": "Ninja Multi-Config"
+    },
+	{
+      "name": "Clang",
+      "inherits": "default",
+      "displayName": "Dev - Clang",
+      "description": "Build using LLVM Clang compiler",
+      "generator": "Ninja Multi-Config",
+      "cacheVariables": {
+		"CMAKE_TOOLCHAIN_FILE": "CMake/Toolchain/Windows.Clang.toolchain.cmake"
+      }
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "default",
+      "hidden": true
+    },
+    {
+      "name": "MSVC-Debug",
+      "configurePreset": "MSVC",
+	  "configuration": "Debug"
+    },
+    {
+      "name": "Clang-Debug",
+      "configurePreset": "Clang",
+	  "configuration": "Debug"
+    },
+    {
+      "name": "MSVC-Release",
+      "configurePreset": "MSVC",
+	  "configuration": "Release"
+    },
+    {
+      "name": "Clang-Release",
+      "configurePreset": "Clang",
+	  "configuration": "Release"
+    }
+  ]
+}
